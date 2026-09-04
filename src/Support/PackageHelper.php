@@ -1,32 +1,27 @@
 <?php
 
-namespace Weboldalnet\PackageTemplate\Support;
+namespace Weboldalnet\CommerceCoupons\Support;
 
 class PackageHelper
 {
-    const PACKAGE_NAME = 'Blog/Cikkek modul';
-    const PACKAGE_PREFIX = 'article';
+    const PACKAGE_NAME = 'Kupon modul';
+    const PACKAGE_PREFIX = 'commerce-coupons';
 
     const PACKAGE_LIST = [
-        'app' => [
-            'name' => 'app | app/',
-            'source' => __DIR__.'/../../app',
-            'destination' => '/app',
+        'routes' => [
+            'name' => 'routes | routes/web.php',
+            'source' => __DIR__.'/../../routes/web.php',
+            'destination' => '/routes/commerce-coupons.php',
         ],
-        'database' => [
-            'name' => 'database | database/migrations',
-            'source' => __DIR__.'/../../database/migrations',
-            'destination' => '/database/migrations',
+        'settings' => [
+            'name' => 'settings | settings/',
+            'source' => __DIR__.'/../../settings',
+            'destination' => '/settings/commerce-coupons',
         ],
-        'public' => [
-            'name' => 'public | public/js,site',
-            'source' => __DIR__.'/../../public',
-            'destination' => '/public',
-        ],
-        'views' => [
-            'name' => 'views | resources/views',
-            'source' => __DIR__.'/../../resources/views',
-            'destination' => '/resources/views',
+        'config' => [
+            'name' => 'config | config/commerce-coupons.php',
+            'source' => __DIR__.'/../../config/commerce-coupons.php',
+            'destination' => '/config/commerce-coupons.php',
         ],
     ];
 
