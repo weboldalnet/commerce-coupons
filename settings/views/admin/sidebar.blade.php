@@ -1,8 +1,15 @@
 {{-- Kupon modul admin menüpontja.
 
-     Csomagváz: egyelőre nincs admin felülete a modulnak, ezért a menüpont
-     ki van kommentelve – így a `commerce-coupons:extend --view=sidebar` nem tesz
-     törött linket az admin oldalsávba. A modul fejlesztésekor kell aktiválni.
+     WEBSHOP PROJEKTBEN EZT NE PUBLIKÁLD.
+
+     A webshop-ai-default csomag saját oldalsávja már tartalmazza a "Kuponok"
+     menüpontot a Webshop csoportban (a `coupons_enabled` beállítás és a
+     Route::has('admin.webshop.coupons.index') együttes feltételével). Ha ezt
+     is bekapcsolod, a menüpont kétszer jelenik meg.
+
+     Ez a részlet azoknak a projekteknek szól, ahol a modul webshop csomag
+     NÉLKÜL fut – ott ez adja az egyetlen belépési pontot. Ilyenkor töröld a
+     köréje írt megjegyzésjeleket.
 
      Megjegyzés: a provider-csomagoktól (SimplePay, FoxPost, GLS) eltérően ez
      nem jelenik meg magától a webshop beállítófelületén – annak a listának a

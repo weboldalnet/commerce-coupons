@@ -15,8 +15,13 @@ class CommerceCouponsServiceProvider extends ServiceProvider
         $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
         $this->loadViewsFrom(__DIR__.'/../settings/views', PackageHelper::PACKAGE_PREFIX);
 
-        // migrációk – a modul saját tábláinak elkészítésekor kell aktiválni
-        //$this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+        // Az admin felület nézetei. Gyökér szintű hozzáadás, hogy a
+        // view('admin.webshop.coupons...') hívás a testvércsomagokkal azonos
+        // módon működjön; a befogadó projekt resources/views-je felülírja.
+        $this->app['view']->addLocation(__DIR__.'/../resources/views');
+
+        // A modul saját tábláit a csomag hozza; publish nem kell hozzájuk.
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
 
         $publishList = [];
         foreach (PackageHelper::PACKAGE_LIST as $name => $publish) {
