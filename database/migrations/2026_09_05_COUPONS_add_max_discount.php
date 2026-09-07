@@ -19,6 +19,14 @@ use Illuminate\Support\Facades\Schema;
  * FIGYELEM: ez a projekt PostgreSQL 9.4-en fut, ahol a
  * "CREATE INDEX IF NOT EXISTS" MÉG NEM LÉTEZIK (9.5-től van).
  * Ezért a létezést a pg_indexes nézetből kérdezzük meg.
+ *
+ * FIGYELEM A FÁJLNÉVRE: a Laravel a migrációkat FÁJLNÉV szerinti ábécésorrendben
+ * futtatja, nem a létrehozás sorrendjében. Az "add_" ábécében megelőzi a "create_"-et,
+ * ezért ez a fájl korábban AZONOS dátummal (2026_09_04) a táblát létrehozó migráció
+ * ELÉ került, és friss adatbázison hibára futott:
+ *   relation "..." does not exist
+ * Meglévő adatbázison ez észrevétlen maradt, mert ott a tábla már létezett.
+ * A dátum ezért szándékosan egy nappal későbbi. Ne írd vissza.
  */
 return new class extends Migration
 {

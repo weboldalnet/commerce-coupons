@@ -1,3 +1,11 @@
+## [1.0.2] - 2026-09-07
+### Javítás: friss adatbázison hibára futott a migráció
+- ugyanaz a fájlnév-sorrendi hiba: `..._COUPONS_add_max_discount` ábécében
+  megelőzte a `..._COUPONS_create_coupons_table`-t
+- a fájl dátuma 2026_09_05-re módosult; a migráció idempotens (hasColumn,
+  DROP CONSTRAINT IF EXISTS, index-létezés vizsgálat), ezért biztonságosan újrafut
+
+
 ## [1.1.0] - 2026-09-04
 ### A kupon modul tényleges funkciója
 
